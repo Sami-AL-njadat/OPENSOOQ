@@ -7,21 +7,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/simple_form.css">
+    <link rel="stylesheet" href="../css/style.css">
 
-    <style>
-        .result-box {
-            padding: 10px;
-            border: 1px solid #007bff;
-            background-color: #f8f9fa;
-            border-radius: 5px;
-            margin-top: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+ 
 </head>
 
 <body>
-
+ 
     <div class="container form-container">
         <h2>Simple Calculator</h2>
         <form action="" method="post">
@@ -41,7 +34,11 @@
                     <input type="number" min="0" class="form-control mb-2" name="number2" id="number2" placeholder="Second Number" required>
                 </div>
                 <div class="col-auto">
-                    <button type="submit" class="btn btn-primary mb-2">Calculate</button>
+
+                    <button type="submit" class="btn btn-primary mb-2">
+                <i class="fa-solid fa-equals"> </i>
+
+                    </button>
                 </div>
             </div>
         </form>
@@ -71,7 +68,7 @@
                 case '/':
                     // Handle division by zero
                     if ($number2 == 0) {
-                        $result = 'Error: Division by zero is not allowed.';
+                        $result = 'Error: Division by zero is not allowed.' ;
                     } else {
                         $result = $number1 / $number2;
                     }

@@ -1,19 +1,2 @@
- body {
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     height: 100vh;
-      margin: 0;
-     background-color: #ffffff;
-  }
-
- .form-container {
-     background-color: white;
-      padding: 30px;
-     border-radius: 8px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-      width: 400px;
-  }
-
- h2{
-text-align: center; }
+ 
+ 

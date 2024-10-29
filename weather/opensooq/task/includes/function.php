@@ -186,5 +186,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contactUs'])) {
     header("Location: ../page/contact_form.php"); // Update with your form page path
     exit();
 }
+
+
+
+
+
+
+
+
+
+
 ?>
  
