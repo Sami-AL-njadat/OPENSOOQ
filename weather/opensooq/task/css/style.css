@@ -13,6 +13,16 @@ body {
   flex: 1; /* Allows container to grow */
 }
 
+
+.main-container {
+  background-color: white;
+   border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: auto;
+  /* margin: auto; */
+  /* Centers the form */
+}
+
 .form-container {
   background-color: white;
   padding: 30px;
@@ -28,7 +38,9 @@ body {
   padding: 10px 0;
 }
  .list-group-item{
-  width: 220px;
+  width: 250px;
+      text-align: justify;
+          background: rgba(102, 152, 226, 0.353);
  }
 
  .navbar-brand img {
@@ -45,7 +57,12 @@ body {
 
 
 
- 
+ .weather{
+  width: 550px;
+  }
+ .form{
+box-shadow: #007bff;
+ }
  
 
 .weather-container {
@@ -65,43 +82,44 @@ button {
 }
  
 
-
-
-/* 
-button {
-  background-color: rgba(28, 109, 163, 0.789);
-  color: white;
-  padding: 10px 20px;
-  font-size: 16px;
-  border: none;
-  border-radius: 48px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-bottom: 17px;
-
-} */
+ 
 
 button:hover {
-  background-color: rgba(135, 206, 250, 0.4);
+  background-color: rgba(252, 252, 252, 0.4) ;
+  color: #007bff;
 }
 
+ .list-group-item:hover {
+   width: 250px;
+   text-align: justify;
+   background: rgba(21, 255, 146, 0.8);
+ }
 
+.contact{
+      font-family: monospace;
+}
 
  
 
 
- 
+ .csa {
+   border: none;
+   border-radius: 10px;
+    text-align: center;
+   align-items: center;
+   
+   transition: transform 0.3s, background 0.3s;
+ }
 
  
 
 
 .card {
-  border: 1px solid #ccc;
-  border-radius: 10px;
+   border: none; 
+  border-radius: 10px;  
   padding: 15px;
   text-align: center;
-  background: rgba(240, 248, 255, 0.8);
-  align-items: center;
+   align-items: center;
   max-height: fit-content;
   height: auto;
   width: auto;
@@ -109,9 +127,9 @@ button:hover {
 }
 
 .card:hover {
-  background: rgba(135, 206, 250, 0.8);
-  /* Change the alpha value or color for the hover state */
-  transform: scale(1.1);
+  background: rgba(0, 0, 0, 0.885);
+color: #f8f9fa
+;  transform: scale(1.1);
 }
 
 .card img {
@@ -121,8 +139,26 @@ button:hover {
 
 
 
+.success-message{
 
+    background-color:#0dd157;
+      font-weight: bold;
+      color:rgb(255, 255, 255);
+    
+      border: 2px solid #0dd157;
+      padding: 10px;
+      margin: 10px;
+      border-radius: 5px;
+      transition: border-color 0.3s ease-in-out;
+      text-align: center ;
+}
  
+
+.success-message:hover {
+
+  background-color: rgb(255, 255, 255);
+  color:#0dd157;
+}
 
 .error-message {
   background-color: whitesmoke;
@@ -166,3 +202,5 @@ text-align: center;
      width: 299px;
  }
 }
+
+

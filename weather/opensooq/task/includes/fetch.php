@@ -11,8 +11,7 @@ if (isset($_GET['city'])) {
     } else {
         $weatherData = json_decode($response, true);
 
-        // Check if city is not found
-        if (isset($weatherData['cod']) && $weatherData['cod'] == 404) {
+         if (isset($weatherData['cod']) && $weatherData['cod'] == 404) {
             echo json_encode(['error' => 'City not found. Please enter a valid city name.']);
         } else {
             echo $response;
@@ -31,9 +30,9 @@ if (isset($_GET['city'])) {
     } else {
         $weatherData = json_decode($response, true);
 
-        // Check if location is invalid
-        if (isset($weatherData['cod']) && $weatherData['cod'] == 404) {
+         if (isset($weatherData['cod']) && $weatherData['cod'] == 404) {
             echo json_encode(['error' => 'Location not found.']);
+            
         } else {
             echo $response;
         }

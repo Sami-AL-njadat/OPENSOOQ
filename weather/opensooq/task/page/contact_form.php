@@ -1,56 +1,43 @@
-<!doctype html>
-<html lang="en">
+ <?php
+    include_once("../layout/header.php");
+    ?>
 
-<head>
-    <title>Title</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="../css/simple_form.css">
-
-    <!-- Bootstrap CSS -->
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/simple_form.css">
-
-</head>
-
-<body>
-
-<div class="container form-container">
-        <h2>Contact Us</h2>
-
-        <?php
-        session_start();
-        if (isset($_SESSION['message'])) {
-            echo '<div class="alert ' . $_SESSION['message_type'] . '">' . $_SESSION['message'] . '</div>';
-            unset($_SESSION['message']);
-            unset($_SESSION['message_type']);
-        }
+ <body class="d-flex flex-column min-vh-100">
+     <?php
+        include_once("../layout/nav.php");
         ?>
 
+     <div class="container form-container contact">
+         <h2>Contact Us</h2>
 
-        <form action="../includes/function.php" method="post">
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" class="form-control" name="name" id="name">
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" class="form-control" name="email" id="email">
-            </div>
-            <div class="form-group">
-                <label for="message">Message</label>
-                <textarea class="form-control" name="message" id="message"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary" name="contactUs">Submit</button>
-        </form>
-    </div>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-</body>
+         <?php
+            session_start();
+            if (isset($_SESSION['message'])) {
+                echo '<div class="alert error-message' . $_SESSION['message_type'] . '">' . $_SESSION['message'] . '</div>';
+                unset($_SESSION['message']);
+                unset($_SESSION['message_type']);
+            }
+            ?>
 
-</html>
+
+         <form action="../includes/function.php" method="post">
+             <div class="form-group">
+                 <label for="name">Name</label>
+                 <input type="text" class="form-control" name="name" placeholder="Enter your name (e.g., john)" id="name">
+             </div>
+             <div class="form-group">
+                 <label for="email">Email</label>
+                 <input placeholder="Enter your Email (e.g., john@example.com)" type="email" class="form-control" name="email" id="email" required  >
+             </div>
+             <div class="form-group">
+                 <label for="message">Message</label>
+                 <textarea placeholder="Type your message here" class="form-control" name="message" id="message"></textarea>
+             </div>
+             <button type="submit" class="btn btn-primary w-100" name="contactUs"><i class="fa-regular fa-paper-plane"></i> Send</button>
+         </form>
+     </div>
+
+
+     <?php
+        @include_once("../layout/footer.php")
+        ?>

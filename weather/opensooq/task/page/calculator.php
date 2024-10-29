@@ -1,105 +1,92 @@
-<!doctype html>
-<html lang="en">
+ <?php
+    include_once("../layout/header.php");
+    ?>
 
-<head>
-    <title>Basic Calculator</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/style.css">
+ <body class="d-flex flex-column min-vh-100">
+     <?php
+        include_once("../layout/nav.php");
+        ?>
+     <div class="container form-container">
+         <h2 mt-2>Simple Calculator</h2>
+         <form action="" method="post">
+             <div class="form-row align-items-center mt-3">
+                 <div class="col-auto">
+                     <input type="number" min="0" class="form-control mb-2" name="number1" id="number1" placeholder="First Number" required>
+                 </div>
+                 <div class="col-auto">
+                     <select class="form-control mb-2" name="operation" id="operation" required>
+                         <option value="+">+</option>
+                         <option value="-">-</option>
+                         <option value="*">*</option>
+                         <option value="/">/</option>
+                     </select>
+                 </div>
+                 <div class="col-auto">
+                     <input type="number" min="0" class="form-control mb-2" name="number2" id="number2" placeholder="Second Number" required>
+                 </div>
+                 <div class="col-auto">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
- 
-</head>
+                     <button type="submit" class="btn btn-primary mb-2">
+                         <i class="fa-solid fa-equals"> </i>
 
-<body>
- 
-    <div class="container form-container">
-        <h2>Simple Calculator</h2>
-        <form action="" method="post">
-            <div class="form-row align-items-center">
-                <div class="col-auto">
-                    <input type="number" min="0"  class="form-control mb-2" name="number1" id="number1" placeholder="First Number" required>
-                </div>
-                <div class="col-auto">
-                    <select class="form-control mb-2" name="operation" id="operation" required>
-                        <option value="+">+</option>
-                        <option value="-">-</option>
-                        <option value="*">*</option>
-                        <option value="/">/</option>
-                    </select>
-                </div>
-                <div class="col-auto">
-                    <input type="number" min="0" class="form-control mb-2" name="number2" id="number2" placeholder="Second Number" required>
-                </div>
-                <div class="col-auto">
+                     </button>
+                 </div>
+             </div>
+         </form>
 
-                    <button type="submit" class="btn btn-primary mb-2">
-                <i class="fa-solid fa-equals"> </i>
+         <?php
+            session_start();
 
-                    </button>
-                </div>
-            </div>
-        </form>
+            // Check if form was submitted
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                // Get the numbers and operation from the form
+                $number1 = $_POST['number1'];
+                $number2 = $_POST['number2'];
+                $operation = $_POST['operation'];
+                $result = '';
 
-        <?php
-        session_start();
+                // Perform the calculation
+                switch ($operation) {
+                    case '+':
+                        $result = $number1 + $number2;
+                        break;
+                    case '-':
+                        $result = $number1 - $number2;
+                        break;
+                    case '*':
+                        $result = $number1 * $number2;
+                        break;
+                    case '/':
+                        // Handle division by zero
+                        if ($number2 == 0) {
+                            $result = 'Error: Division by zero is not allowed.';
+                        } else {
+                            $result = $number1 / $number2;
+                        }
+                        break;
+                    default:
+                        $result = 'Invalid operation.';
+                        break;
+                }
 
-        // Check if form was submitted
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // Get the numbers and operation from the form
-            $number1 = $_POST['number1'];
-            $number2 = $_POST['number2'];
-            $operation = $_POST['operation'];
-            $result = '';
+                // Store the result in a session variable
+                $_SESSION['result'] = $result;
 
-            // Perform the calculation
-            switch ($operation) {
-                case '+':
-                    $result = $number1 + $number2;
-                    break;
-                case '-':
-                    $result = $number1 - $number2;
-                    break;
-                case '*':
-                    $result = $number1 * $number2;
-                    break;
-                case '/':
-                    // Handle division by zero
-                    if ($number2 == 0) {
-                        $result = 'Error: Division by zero is not allowed.' ;
-                    } else {
-                        $result = $number1 / $number2;
-                    }
-                    break;
-                default:
-                    $result = 'Invalid operation.';
-                    break;
+                // Redirect to the same page to prevent form resubmission
+                header("Location: " . $_SERVER['PHP_SELF']);
+                exit();
             }
 
-            // Store the result in a session variable
-            $_SESSION['result'] = $result;
+            // Display the result if it exists
+            if (isset($_SESSION['result'])) {
+                echo '<div class="result-box">Result: <strong>' . htmlspecialchars($_SESSION['result']) . '</strong></div>';
+                // Unset the result after displaying it
+                unset($_SESSION['result']);
+            }
+            ?>
 
-            // Redirect to the same page to prevent form resubmission
-            header("Location: " . $_SERVER['PHP_SELF']);
-            exit();
-        }
+     </div>
 
-        // Display the result if it exists
-        if (isset($_SESSION['result'])) {
-            echo '<div class="result-box">Result: <strong>' . htmlspecialchars($_SESSION['result']) . '</strong></div>';
-            // Unset the result after displaying it
-            unset($_SESSION['result']);
-        }
+     <?php
+        @include_once("../layout/footer.php")
         ?>
-
-    </div>
-
-    <!-- Optional JavaScript -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-</body>
-
-</html>
