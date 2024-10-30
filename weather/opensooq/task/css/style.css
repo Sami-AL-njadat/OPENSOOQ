@@ -13,14 +13,47 @@ body {
   flex: 1; /* Allows container to grow */
 }
 
-
 .main-container {
-  background-color: white;
-   border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  width: auto;
-  /* margin: auto; */
-  /* Centers the form */
+  padding-top: 20px;
+}
+ 
+
+.card {
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 10px;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.card-text {
+  text-align: center;
+  font-size: 1rem;
+  color: #555;
+}
+
+.btn-primary {
+  display: block;
+  margin: 0 auto;
+  font-weight: bold;
 }
 
 .form-container {
@@ -37,11 +70,7 @@ body {
   text-align: center;
   padding: 10px 0;
 }
- .list-group-item{
-  width: 250px;
-      text-align: justify;
-          background: rgba(102, 152, 226, 0.353);
- }
+
 
  .navbar-brand img {
   transition: transform 0.3s ease;
@@ -89,16 +118,15 @@ button:hover {
   color: #007bff;
 }
 
- .list-group-item:hover {
-   width: 250px;
-   text-align: justify;
-   background: rgba(21, 255, 146, 0.8);
- }
+
 
 .contact{
       font-family: monospace;
 }
+.simple{
+  font-family: monospace;
 
+}
  
 
 
@@ -114,29 +142,55 @@ button:hover {
  
 
 
-.card {
-   border: none; 
-  border-radius: 10px;  
-  padding: 15px;
+ .listcard {
+  border: none;
+  border-radius: 15px;
+  padding: 20px;
   text-align: center;
-   align-items: center;
   max-height: fit-content;
-  height: auto;
-  width: auto;
-  transition: transform 0.3s, background 0.3s;
+  /* width: fit-content; */
+  transition: transform 0.3s, background-color 0.3s;
+  background: rgba(240, 240, 240, 0.9); /* Soft background */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  align-items: center;
+  text-align: justify;
+
+
 }
 
-.card:hover {
-  background: rgba(0, 0, 0, 0.885);
-color: #f8f9fa
-;  transform: scale(1.1);
+.listcard:hover {
+  background: rgba(0, 0, 0, 0.9);
+  color: #f8f9fa;
+  transform: scale(1.05);
+  text-align: justify;
+
 }
 
-.card img {
+ .list-group-item {
+  width: 280px;
+  text-align: left;
+  background: rgba(102, 152, 226, 0.4);  
+  color: #212529;
+  font-weight: 500;
+  margin: 5px 0;
+  border: none;
+  border-radius: 8px;
+  text-align: justify;
 
-  height: 80px;
+  transition: background-color 0.3s;
 }
 
+.list-group-item:hover {
+  background: rgba(21, 255, 146, 0.8);  
+ }
+
+ .list-group-item i {
+  margin-right: 8px;
+  color: #007bff;
+}
+
+
+ 
 
 
 .success-message{
@@ -204,3 +258,52 @@ text-align: center;
 }
 
 
+.books{
+  width: 80% !important;
+}
+
+
+th{
+  text-align: center;
+
+}
+
+td{
+  text-align: center;
+max-width: 120px;
+}
+
+
+.login{
+  width: 500px;
+}
+
+ 
+
+.btn-custom {
+  padding: 10px 20px;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.btn-primary.btn-custom {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary.btn-custom:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.btn-danger.btn-custom {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+.btn-danger.btn-custom:hover {
+  background-color: #b02a37;
+  transform: scale(1.05);
+}

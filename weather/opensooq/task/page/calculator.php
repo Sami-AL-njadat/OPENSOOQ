@@ -1,6 +1,7 @@
  <?php
-    include_once("../layout/header.php");
-    ?>
+session_start();
+include_once("../layout/header.php");
+?>
 
  <body class="d-flex flex-column min-vh-100">
      <?php
@@ -35,7 +36,6 @@
          </form>
 
          <?php
-            session_start();
 
             // Check if form was submitted
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {

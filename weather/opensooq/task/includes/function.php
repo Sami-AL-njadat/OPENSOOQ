@@ -190,7 +190,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contactUs'])) {
 
 
 
+$hardcodedUsername = "admin";
+$hardcodedPassword = "password123";
 
+ if (isset($_POST['login'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+     if ($username === $hardcodedUsername && $password === $hardcodedPassword) {
+         $_SESSION['userlogin'] = true;
+        $_SESSION['username'] = $username; 
+        header('location: dashboard.php');  
+        exit();
+    } else {
+        $errorMessage = "Invalid username or password.";  
+    }
+}
 
 
 

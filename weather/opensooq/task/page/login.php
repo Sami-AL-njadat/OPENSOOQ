@@ -1,34 +1,47 @@
 <?php
-include_once("../includes/function.php");
-?>
- <?php
+session_start();
+error_reporting(0);
+
+ include_once("../includes/login_function.php");
+
+ if (isset($_SESSION['userlogin']) && $_SESSION['userlogin'] === true) {
+    header('Location: ../home.php'); 
+    exit();
+}
+
+ $errorMessage = isset($_SESSION['errorMessage']) ? $_SESSION['errorMessage'] : '';
+unset($_SESSION['errorMessage']);  
+
 include_once("../layout/header.php");
 ?>
 <body>
-<?php
-include_once("../layout/nav.php");
-?>
-<div class="container mt-5 form-container">
-    <h2 class="mt-3">Welcome</h2>
+<?php include_once("../layout/nav.php"); ?>
+<div class="container mt-5 form-container login">
+    <h2 class="text-center mb-4 text-primary">Welcome Back</h2>
     
-    <form action="" method="post"> <!-- Submit to the same page -->
-        <div class="form-group">
-            <label for="city">City Name</label>
-            <input col="5" placeholder="Enter a city name (e.g., Amman)" type="text" class="form-control" name="city" id="city" required>
+    <?php if (!empty($errorMessage)): ?>
+        <div class="alert alert-danger error-message"><i class='fas fa-exclamation-triangle'></i>  <?= $errorMessage; ?></div>
+    <?php endif; ?> 
+
+    <form method="post">  
+        <div class="form-group mb-4">
+            <label for="email" class="form-label fw-bold">Email</label>
+            <div class="input-group">
+                <span class="input-group-text bg-primary text-white"><i class="fas fa-envelope"></i></span>
+                <input type="email" class="form-control" name="email" id="email" placeholder="Enter your email" required>
+            </div>
         </div>
 
-        <div class="form-group">
-            <label for="city">City Name</label>
-            <input  placeholder="Enter a city name (e.g., Amman)" type="text" class="form-control" name="city" id="city" required>
+        <div class="form-group mb-4">
+            <label for="password" class="form-label fw-bold">Password</label>
+            <div class="input-group">
+                <span class="input-group-text bg-primary text-white"><i class="fas fa-lock"></i></span>
+                <input type="password" class="form-control" name="password" id="password" placeholder="Enter your password" required>
+            </div>
         </div>
-
-        <button type="submit" class="btn btn-primary" name="weather">Submit</button>
+        
+        <button type="submit" class="btn btn-primary btn-lg w-100 mt-3" name="login">Login</button>
     </form>
-
-    <?php
-     echo $weatherOutput; 
-    ?>
 </div>
-<?php 
-@include_once("../layout/footer.php")
-?>
+
+<?php include_once("../layout/footer.php"); ?>

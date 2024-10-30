@@ -4,22 +4,14 @@ error_reporting(0);
 
 include_once("../includes/config.php");
 include_once("../includes/function.php");
+include_once("../includes/auth.php");
 ?>
 
-<!doctype html>
-<html lang="en">
+<?php include_once("../layout/header.php"); ?>
 
-<head>
-    <title>Book Manager</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/style.css">
-
-</head>
-
-<body>
-    <div class="container mt-5">
+<body class="d-flex flex-column min-vh-100">
+    <?php include_once("../layout/nav.php"); ?>
+    <div class="container mt-5 form-container books">
         <h2>Book Manager</h2>
 
         <?php
@@ -28,8 +20,9 @@ include_once("../includes/function.php");
             unset($_SESSION['message']);
         }
         ?>
+ 
 
-        <form action="../includes/function.php" method="POST">
+        <form class="shadow p-4" action="../includes/function.php" method="POST">
             <input type="hidden" name="id" id="bookId">
             <div class="form-group">
                 <label for="title">Title</label>
@@ -47,8 +40,8 @@ include_once("../includes/function.php");
             <button type="submit" class="btn btn-warning" name="update_book" style="display:none;">Update Book</button>
         </form>
 
-        <h3 class="mt-4">Books List</h3>
-        <table class="table table-bordered">
+        <h2 class="mt-4">Books List</h2>
+        <table class="table table-bordered shadow p-4">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -94,9 +87,4 @@ include_once("../includes/function.php");
             document.querySelector('button[name="update_book"]').style.display = 'block';
         }
     </script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-</body>
-
-</html>
+    <?php @include_once("../layout/footer.php"); ?>

@@ -17,7 +17,7 @@ function getWeatherData($city)
         return "<div class='alert alert-danger error-message mt-2'><i class='fas fa-exclamation-triangle'></i> City not found. Please enter a valid city name.</div>";
     } else {
         $output = "<div class='alert alert-success  success-message mt-2'>Weather data for <strong>{$city}</strong>:</div>";
-        $output .= "<ul class='list-group card mt-4'>";
+        $output .= "<ul class='list-group listcard mt-4'>";
         $output .= "<li class='list-group-item'><i class='fas fa-flag'></i> Country: {$weatherData['sys']['country']} </li>";
         $output .= "<li class='list-group-item'><i class='fas fa-thermometer-half'></i> Temperature: {$weatherData['main']['temp']} °C</li>";
         $output .= "<li class='list-group-item'><i class='fas fa-tint'></i> Humidity: {$weatherData['main']['humidity']}%</li>";

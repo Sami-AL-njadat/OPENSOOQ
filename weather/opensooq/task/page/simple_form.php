@@ -9,12 +9,12 @@ include_once("../includes/function.php");
 include_once("../layout/header.php");
 ?>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
 
 <?php
 include_once("../layout/nav.php");
 ?>
-    <div class="container mt-5 form-container">
+    <div class="container mt-5 form-container simple">
             <h2>Add User</h2>
 
         <?php
@@ -29,14 +29,15 @@ include_once("../layout/nav.php");
 
         <form action="../includes/function.php" method="post" id="add_user">
             <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" class="form-control" name="name" id="name">
+                <label  for="name">Name</label>
+                <input placeholder="Enter name"  type="text" class="form-control" name="name" id="name">
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" class="form-control" name="email" id="email">
+                <input  type="email" placeholder="Enter email" class="form-control h-100" name="email" id="email">
             </div>
-            <button type="submit" class="btn btn-primary" name="add_user">Submit</button>
+            
+            <button type="submit" class="btn btn-primary w-100" name="add_user"><i class="fa-solid fa-plus"></i> Add</button>
         </form>
     </div>
 
