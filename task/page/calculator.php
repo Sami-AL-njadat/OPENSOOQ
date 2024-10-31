@@ -37,16 +37,13 @@
 
          <?php
 
-            // Check if form was submitted
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                // Get the numbers and operation from the form
-                $number1 = $_POST['number1'];
+             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                 $number1 = $_POST['number1'];
                 $number2 = $_POST['number2'];
                 $operation = $_POST['operation'];
                 $result = '';
 
-                // Perform the calculation
-                switch ($operation) {
+                 switch ($operation) {
                     case '+':
                         $result = $number1 + $number2;
                         break;
@@ -57,8 +54,7 @@
                         $result = $number1 * $number2;
                         break;
                     case '/':
-                        // Handle division by zero
-                        if ($number2 == 0) {
+                         if ($number2 == 0) {
                             $result = 'Error: Division by zero is not allowed.';
                         } else {
                             $result = $number1 / $number2;
@@ -69,24 +65,20 @@
                         break;
                 }
 
-                // Store the result in a session variable
-                $_SESSION['result'] = $result;
+                 $_SESSION['result'] = $result;
 
-                // Redirect to the same page to prevent form resubmission
-                header("Location: " . $_SERVER['PHP_SELF']);
+                 header("Location: " . $_SERVER['PHP_SELF']);
                 exit();
             }
 
-            // Display the result if it exists
-            if (isset($_SESSION['result'])) {
+             if (isset($_SESSION['result'])) {
                 echo '<div class="result-box">Result: <strong>' . htmlspecialchars($_SESSION['result']) . '</strong></div>';
-                // Unset the result after displaying it
-                unset($_SESSION['result']);
+                 unset($_SESSION['result']);
             }
             ?>
 
      </div>
 
      <?php
-        @include_once("../layout/footer.php")
+        include_once("../layout/footer.php")
         ?>

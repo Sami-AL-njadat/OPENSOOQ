@@ -42,5 +42,5 @@ include_once("../layout/nav.php");
     </div>
 
     <?php 
-@include_once("../layout/footer.php")
+include_once("../layout/footer.php")
 ?>

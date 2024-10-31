@@ -34,4 +34,4 @@ error_reporting(0);
         ?>
     </div>
 
-    <?php @include_once("../layout/footer.php"); ?>
+    <?php include_once("../layout/footer.php"); ?>

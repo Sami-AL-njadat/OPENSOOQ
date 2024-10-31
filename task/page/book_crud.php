@@ -87,4 +87,4 @@ include_once("../includes/auth.php");
             document.querySelector('button[name="update_book"]').style.display = 'block';
         }
     </script>
-    <?php @include_once("../layout/footer.php"); ?>
+    <?php include_once("../layout/footer.php"); ?>
