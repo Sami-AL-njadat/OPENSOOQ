@@ -10,8 +10,11 @@ error_reporting(0);
     <title>Title</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/style.css">
+
 
 </head>
 
@@ -46,9 +49,20 @@ error_reporting(0);
                 <div class="card">
                     <img src="./image/book.png" class="card-img-top" alt="Book Image">
                     <div class="card-body">
-                        <h5 class="card-title">Book</h5>
+                        <h5 class="card-title">
+
+                            <?php if (isset($_SESSION['userlogin'])): ?>
+                                <i class="fa-solid fa-lock-open"></i>
+                            <?php else: ?>
+                                <i class="fa-solid fa-lock"></i>
+                            <?php endif; ?>
+                            Book
+                        </h5>
+
                         <p class="card-text">Manage your books.</p>
-                        <a href="./page/book_crud.php" class="btn btn-primary">Click here</a>
+                        <a href="./page/book_crud.php" class="btn btn-primary">
+
+                            Click here</a>
                     </div>
                 </div>
             </div>

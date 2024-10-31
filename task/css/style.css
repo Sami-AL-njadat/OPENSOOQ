@@ -367,4 +367,14 @@ max-width: 120px;
      width: 100% !important;
       font-family: monospace;
    }
- }
+
+   .listcard{
+box-shadow: none;
+background:none   }
+ 
+    .listcard:hover {
+      box-shadow: none;
+      background: none
+    }
+
+}
