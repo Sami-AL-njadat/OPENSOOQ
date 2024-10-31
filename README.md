@@ -1,8 +1,7 @@
 # OPENSOOQ
 
 
-Here's a clean, Markdown-friendly version for your `README.md` file:
-
+ 
 ---
 
 # Project Setup Instructions
