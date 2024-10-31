@@ -16,13 +16,14 @@ function getWeatherData($city)
     if (isset($weatherData['error']) || !isset($weatherData['main'])) {
         return "<div class='alert alert-danger error-message mt-2'><i class='fas fa-exclamation-triangle'></i> City not found. Please enter a valid city name.</div>";
     } else {
-        $output = "<div class='alert alert-success  success-message mt-2'>Weather data for <strong>{$city}</strong>:</div>";
+        $output = "";
         $output .= "<ul class='list-group listcard mt-4'>";
+        $output .= "<div class='alert alert-success   success-message mt-2' >Weather data for <strong>{$city}</strong>:</div>";
         $output .= "<li class='list-group-item'><i class='fas fa-flag'></i> Country: {$weatherData['sys']['country']} </li>";
         $output .= "<li class='list-group-item'><i class='fas fa-thermometer-half'></i> Temperature: {$weatherData['main']['temp']} °C</li>";
-        $output .= "<li class='list-group-item'><i class='fas fa-tint'></i> Humidity: {$weatherData['main']['humidity']}%</li>";
-        $output .= "<li class='list-group-item'><i class='fas fa-cloud'></i> Weather: {$weatherData['weather'][0]['description']}</li>";
-        $output .= "<li class='list-group-item'><i class='fas fa-wind'></i> Wind Speed: {$weatherData['wind']['speed']} m/s</li>";
+        $output .= "<li class='list-group-item'><i class='fas fa-tint'></i> Humidity:{$weatherData['main']['humidity']}%</li>";
+        $output .= "<li class='list-group-item'><i class='fas fa-cloud'></i> {$weatherData['weather'][0]['description']}</li>";
+        $output .= "<li class='list-group-item'><i class='fas fa-wind'></i> Wind Speed:{$weatherData['wind']['speed']} m/s</li>";
         $output .= "</ul>";
         return $output;
     }
