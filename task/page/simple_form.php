@@ -14,7 +14,7 @@ include_once("../layout/header.php");
 <?php
 include_once("../layout/nav.php");
 ?>
-    <div class="container mt-5 form-container simple">
+    <div class="container mt-5 mb-5 form-container simple">
             <h2>Add User</h2>
 
         <?php

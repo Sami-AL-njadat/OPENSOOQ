@@ -109,7 +109,7 @@ error_reporting(0);
                     <img src="./image/contact.jpg" class="card-img-top" alt="Contact Us Image">
                     <div class="card-body">
                         <h5 class="card-title">Contact Us</h5>
-                        <p class="card-text">Stay in touch with us.</p>
+                        <p class="card-text">Keep in touch with us</p>
                         <a href="./page/contact_form.php" class="btn btn-primary">Click here</a>
                     </div>
                 </div>

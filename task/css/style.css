@@ -11,7 +11,7 @@ body {
       font-family: monospace;
 }
 .container {
-  flex: 1; /* Allows container to grow */
+  flex: 1;  
 }
 
 .main-container {
@@ -62,12 +62,12 @@ body {
   padding: 30px;
   border-radius: 8px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  width: 400px;
-  margin: auto; /* Centers the form */
+  width: 500px;
+  margin: auto;  
 }
 
 .footer {
-  background-color: #f8f9fa; /* Example footer color */
+  background-color: #f8f9fa;  
   text-align: center;
   padding: 10px 0;
 }
@@ -78,11 +78,11 @@ body {
 }
 
 .navbar-brand img:hover {
-  transform: scale(1.05); /* Slight zoom on hover */
+  transform: scale(1.05);  
 }
 
 .navbar-brand span {
-  color: #343a40; /* Adjust as needed for better contrast */
+  color: #343a40;   
 }
 
 
