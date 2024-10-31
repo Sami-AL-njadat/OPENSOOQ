@@ -25,10 +25,10 @@ include_once("../layout/header.php");
 
     <form method="post">  
         <div class="form-group mb-4">
-            <label for="email" class="form-label fw-bold">Email</label>
+            <label for="email" class="form-label fw-bold">UserName</label>
             <div class="input-group">
-                <span class="input-group-text bg-primary text-white"><i class="fas fa-envelope"></i></span>
-                <input type="email" class="form-control" name="email" id="email" placeholder="Enter your email"  >
+                <span class="input-group-text bg-primary text-white"><i class="fas fa-user"></i></span>
+                <input type="text" class="form-control" name="email" id="email" placeholder="Enter your UserName"  >
             </div>
         </div>
 

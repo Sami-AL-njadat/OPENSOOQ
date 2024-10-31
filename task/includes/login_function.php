@@ -1,8 +1,8 @@
     <?php
     session_start();
-    $Username = "user@opensooq.com";
+    $Username = "opensooq";
     $Passwords = "123123";
-    $nameofUser = "john";
+    $nameofUser = "Sami";
 
     if (isset($_POST['login'])) {
         $email = htmlspecialchars(trim($_POST['email']));
